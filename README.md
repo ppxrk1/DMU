@@ -33,52 +33,97 @@ THETA_IMAGE:
 THETA_WORLD:
 
 ELLIPTICITY: 1-b/a; where a = semi-major axis, b = semi-minor axis
+
 KRON_RADIUS:
+
 A_IMAGE, B_IMAGE:
+
 ALPHA_J2000, DELTA_J2000: RA & Dec - remove (repeated above?)
+
 BACKGROUND:
+
 FLUX_BEST, FLUXERR_BEST:
+
 MAG_BEST, MAGERR_BEST:
+
 FLUX_RADIUS:
+
 ISOAREA_IMAGE:
+
 FWHM_IMAGE:
+
 FLAGS_2: 0,1,2,3,4,6,7,16
+
 CLASS_STAR:
+
 FLAG_GALFIT: All 2 - remove?
+
 NITER_GALFIT:
+
 NEIGH_GALFIT:
+
 CHISQ_GALFIT:
+
 VERSION_GALFIT:
+
 FIRSTCON_GALFIT, LASTCON_GALFIT:
+
 NDOF_GALFIT:
+
 NFREE_GALFIT:
+
 NFIX_GALFIT:
+
 CHI2NU_GALFIT:
+
 INITFILE:
+
 CONSTRNT:
+
 FITSECT:
+
 CONVBOX:
+
 CPUTIME_SETUP_GALFIT:
+
 CPUTIME_FIT_GALFIT:
+
 CPUTIME_TOTAL_GALFIT:
+
 ORG_IMAGE:
+
 FILE_GALFIT:
+
 SKY_GALFIT:
+
 PSF_GALFIT:
+
 ORG_IMAGE_BAND:
+
 TILE:
+
 Separation:
 
+---------------------------------------------------------------
 _GALFIT:
+
 _GALFIT_CHEB:
+
 _GALFIT_BAND: Multiband fitting, Single Sersic
+
 _GALFIT_BAND_B: Multiband fitting, bulge (n = free)
+
 _GALFIT_BAND_D: Multiband fitting, disc (n = 1)
 
+---------------------------------------------------------------
 X, Y: Co-ordinates
+
 MAG: Aparrent magnitude
+
 N: Sersic index
+
 Q: Axial ratio, b/a?
+
 RE: Effective radius/pixels
 
 X_GALFIT, XERR_GALFIT:
