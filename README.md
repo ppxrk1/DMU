@@ -23,10 +23,15 @@ Cases where the fit has crashed (VERSION_GALFIT = 'crash') have been removed.
 
 ------------------------------------------------------------------------
 NUMBER: Remove?
+
 X_IMAGE, Y_IMAGE:
+
 CXX_IMAGE, CYY_IMAGE, CXY_IMAGE:
+
 THETA_IMAGE:
+
 THETA_WORLD:
+
 ELLIPTICITY: 1-b/a; where a = semi-major axis, b = semi-minor axis
 KRON_RADIUS:
 A_IMAGE, B_IMAGE:
