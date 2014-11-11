@@ -14,6 +14,8 @@ CATAID is an ID which has a one-to-one match with InputCatAv05.
 
 Matched GAMA_9_ffvqqff_bd6_nf_re_b_HALF.fits with GAMA Input Cat in Topcat, match radius = 3"
 
+[not yet implemented] Where data is missing, the value '-9.9999' will be used for a floating point number, '-999' for an integer, and '-' for a string.
+
 ------------------------------------------------------------------------
 THETA_IMAGE:
 THETA_WORLD:
@@ -46,40 +48,3 @@ Q: Axial ratio, b/a
 RE: Effective radius /pixels
 
 ------------------------------------------------------------------------
-
-KRON_RADIUS: Removed (in combination with A_IMAGE used as Galfit starting value, only used for postage stamp sizes and some deblending decisions)
-A_IMAGE, B_IMAGE: Removed (minor axis can be calculated I think)
-ALPHA_J2000, DELTA_J2000: Removed (RA & Dec - remove (repeated above?))
-MAG_BEST: use in combination with an offset (‘colour’) to get starting values for Galfit (Input). Also imposed as constraint using INPUT+- 5mag
-FLUX_RADIUS: used to calculate a Galfit start value for size (single-sersic fit)
-FLAG_GALFIT: Removed
-NITER_GALFIT: Removed
-NEIGH_GALFIT: Removed
-CHISQ_GALFIT: Removed
-~FIRSTCON_GALFIT, LASTCON_GALFIT: Removed
-~NDOF_GALFIT: Removed
-~NFREE_GALFIT: Removed
-~NFIX_GALFIT: Removed
-CHI2NU_GALFIT: Removed
-FITSECT:
-CONVBOX:
-~CPUTIME_SETUP_GALFIT: Removed
-~CPUTIME_FIT_GALFIT: Removed
-~CPUTIME_TOTAL_GALFIT: Removed
-FILE_GALFIT: serves as ID  (INITFILE is very similar we should discuss which one to keep)
-Separation: Removed (I assume this is the offset between GAMA and our RA&DEC?)
-
-_GALFIT: Removed (I would argue to remove ALL these values, They are used internally for deblending decisions, but should be identical to _GALFIT_BAND[0].)
-_GALFIT_CHEB: _MAG Removed (We should think about removing the MAG values here as the are too dangerous to be used. Removing them would stop people doing bad things.)
-_GALFIT_BAND: Multiband fitting, Single Sersic
-_GALFIT_BAND_B: Multiband fitting, bulge (n = free)
-_GALFIT_BAND_D: Multiband fitting, disc (n = 1)
-
-DONE: We should think about re-ordering _BAND values such that they are in wavelength order (ugrizYJHK) instead of having the main band up front (rugizYJHK)
-In any case, we have to give wavelength values, only THEN do the CHEB values make sense
-
-X, Y: Co-ordinates
-MAG: Aparrent magnitude
-N: Sersic index
-Q: Axial ratio, b/a?
-RE: Effective radius/pixels
