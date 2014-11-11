@@ -17,32 +17,32 @@ Matched GAMA_9_ffvqqff_bd6_nf_re_b_HALF.fits with GAMA Input Cat in Topcat, matc
 [not yet implemented] Where data is missing, the value '-9.9999' will be used for a floating point number, '-999' for an integer, and '-' for a string.
 
 ------------------------------------------------------------------------
-THETA_IMAGE:
-THETA_WORLD:
+THETA_IMAGE: Position Angle against the image, as given by SExtractor
+THETA_WORLD:Position Angle against the WCS, as given by SExtractor
 ELLIPTICITY: Axial ratio of galaxy, b/a
-BACKGROUND:
-FLUX_BEST, FLUXERR_BEST:
-MAG_BEST, MAGERR_BEST:
-FLUX_RADIUS:
-ISOAREA_IMAGE:
-FWHM_IMAGE:
-FLAGS_1:
-CLASS_STAR:
-INIT_FILE:
-CONSTRNT:
-FITSECT:
-CONVBOX:
-ORG_IMAGE
+BACKGROUND: Local background as given by SExtractor
+FLUX_BEST, FLUXERR_BEST: Flux_Best as given by SExtractor, Error on FLUX_BEST
+MAG_BEST, MAGERR_BEST: MAG_Best as given by SExtractor, Error on MAG_BEST
+FLUX_RADIUS: Halflight radius as given by SExtractor
+ISOAREA_IMAGE: Object area as given by SExtractor
+FWHM_IMAGE: Image FWHM as given by SExtractor
+FLAGS_1: SExtractor flags (see SExtractor manual)
+CLASS_STAR: Star/Galaxy Classifier as given by SExtractor
+INIT_FILE: GALFIT start file, for manual re-run and adaptation
+CONSTRNT: GALFIT constraint file (contains allowed values, useful for analysis and selection of 'free' fits)
+FITSECT: Size of the fit section that the fit uses (in Galapagos use equivalent with postage stamp size)
+CONVBOX: Size of GALFIT convolution box used for the fit (should be the same for all objects)
+ORG_IMAGE: Array of Image names for each band on which the object was selected to be fit
 
 ---
-_GALFIT_CHEB: 
-_GALFIT_BAND: Multiband fitting, Single Sersic
+_GALFIT_CHEB: Multiband fitting, Single Sersic (Chebishev polynomial parameters)
+_GALFIT_BAND: Multiband fitting, Single Sersic (Parameters at each observed band)
 _GALFIT_BAND_B: Multiband fitting, bulge (n = free)
 _GALFIT_BAND_D: Multiband fitting, disc (n = 1)
 
 ---
 X, Y: Co-ordinates 
-MAG: Aparrent magnitude
+MAG: Apparent magnitude
 N: Sersic index
 Q: Axial ratio, b/a
 RE: Effective radius /pixels
