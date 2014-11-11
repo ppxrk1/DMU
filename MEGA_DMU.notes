@@ -12,36 +12,65 @@ Simulations_DMU
 ------------------------------------------------------------------------
 CATAID is an ID which has a one-to-one match with InputCatAv05.
 
-Columns 1-27 taken directly from InputCatAv05. Remove most of these?
-
-Cases where the fit has crashed (VERSION_GALFIT = 'crash') have been removed.
-Boris: FLAG_GALFIT: All 2 - remove?    Are you only keeping the galaxies with successful fits (Or even a subset of these? WHICH subset?)? Then remove, yes. If you want to keep the ones that crashes (flag ==1), which might be interesting, you should keep this (and many of the SExtractor values, so people are able to identify WHY they failed.
+Matched GAMA_9_ffvqqff_bd6_nf_re_b_HALF.fits with GAMA Input Cat in Topcat, match radius = 3"
 
 ------------------------------------------------------------------------
-KRON_RADIUS: in combination with A_IMAGE used as Galfit starting value, only used for postage stamp sizes and some deblending decisions
-A_IMAGE, B_IMAGE: (minor axis can be calculated I think)
-ALPHA_J2000, DELTA_J2000: RA & Dec - remove (repeated above?)
-MAG_BEST: use in combination with an offset (‘colour’) to get starting values for Galfit (Input). Also imposed as constraint using INPUT+- 5mag
-FLUX_RADIUS:used to calculate a Galfit start value for size (single-sersic fit)
-FLAG_GALFIT: All 2 - remove?
-NITER_GALFIT:
-NEIGH_GALFIT:
-CHISQ_GALFIT:
-~FIRSTCON_GALFIT, LASTCON_GALFIT:
-~NDOF_GALFIT:
-~NFREE_GALFIT:
-~NFIX_GALFIT:
-CHI2NU_GALFIT:
+THETA_IMAGE:
+THETA_WORLD:
+ELLIPTICITY: Axial ratio of galaxy, b/a
+BACKGROUND:
+FLUX_BEST, FLUXERR_BEST:
+MAG_BEST, MAGERR_BEST:
+FLUX_RADIUS:
+ISOAREA_IMAGE:
+FWHM_IMAGE:
+FLAGS_1:
+CLASS_STAR:
+INIT_FILE:
+CONSTRNT:
 FITSECT:
 CONVBOX:
-~CPUTIME_SETUP_GALFIT:
-~CPUTIME_FIT_GALFIT:
-~CPUTIME_TOTAL_GALFIT:
-FILE_GALFIT: serves as ID  (INITFILE is very similar we should discuss which one to keep)
-Separation: (I assume this is the offset between GAMA and our RA&DEC?)
+ORG_IMAGE
 
-_GALFIT: I would argue to remove ALL these values, They are used internally for deblending decisions, but should be identical to _GALFIT_BAND[0].
-_GALFIT_CHEB: We should think about removing the MAG values here as the are too dangerous to be used. Removing them would stop people from doing bad things.
+---
+_GALFIT_CHEB: 
+_GALFIT_BAND: Multiband fitting, Single Sersic
+_GALFIT_BAND_B: Multiband fitting, bulge (n = free)
+_GALFIT_BAND_D: Multiband fitting, disc (n = 1)
+
+---
+X, Y: Co-ordinates 
+MAG: Aparrent magnitude
+N: Sersic index
+Q: Axial ratio, b/a
+RE: Effective radius /pixels
+
+------------------------------------------------------------------------
+
+KRON_RADIUS: Removed (in combination with A_IMAGE used as Galfit starting value, only used for postage stamp sizes and some deblending decisions)
+A_IMAGE, B_IMAGE: Removed (minor axis can be calculated I think)
+ALPHA_J2000, DELTA_J2000: Removed (RA & Dec - remove (repeated above?))
+MAG_BEST: use in combination with an offset (‘colour’) to get starting values for Galfit (Input). Also imposed as constraint using INPUT+- 5mag
+FLUX_RADIUS: used to calculate a Galfit start value for size (single-sersic fit)
+FLAG_GALFIT: Removed
+NITER_GALFIT: Removed
+NEIGH_GALFIT: Removed
+CHISQ_GALFIT: Removed
+~FIRSTCON_GALFIT, LASTCON_GALFIT: Removed
+~NDOF_GALFIT: Removed
+~NFREE_GALFIT: Removed
+~NFIX_GALFIT: Removed
+CHI2NU_GALFIT: Removed
+FITSECT:
+CONVBOX:
+~CPUTIME_SETUP_GALFIT: Removed
+~CPUTIME_FIT_GALFIT: Removed
+~CPUTIME_TOTAL_GALFIT: Removed
+FILE_GALFIT: serves as ID  (INITFILE is very similar we should discuss which one to keep)
+Separation: Removed (I assume this is the offset between GAMA and our RA&DEC?)
+
+_GALFIT: Removed (I would argue to remove ALL these values, They are used internally for deblending decisions, but should be identical to _GALFIT_BAND[0].)
+_GALFIT_CHEB: _MAG Removed (We should think about removing the MAG values here as the are too dangerous to be used. Removing them would stop people doing bad things.)
 _GALFIT_BAND: Multiband fitting, Single Sersic
 _GALFIT_BAND_B: Multiband fitting, bulge (n = free)
 _GALFIT_BAND_D: Multiband fitting, disc (n = 1)
@@ -54,16 +83,3 @@ MAG: Aparrent magnitude
 N: Sersic index
 Q: Axial ratio, b/a?
 RE: Effective radius/pixels
-
-X_GALFIT, XERR_GALFIT:
-X_GALFIT_CHEB, XERR_GALFIT_CHEB:
-Y_GALFIT, YERR_GALFIT:
-Y_GALFIT_CHEB, YERR_GALFIT_CHEB:
-MAG_GALFIT, MAGERR_GALFIT:
-MAG_GALFIT_CHEB, MAGERR_GALFIT_CHEB:
-RE_GALFIT, REERR_GALFIT:
-RE_GALFIT_CHEB, REERR_GALFIT_CHEB:
-N_GALFIT, NERR_GALFIT:
-N_GALFIT_CHEB, NERR_GALFIT_CHEB:
-Q_GALFIT, QERR_GALFIT:
-Q_GALFIT_CHEB, QERR_GALFIT_CHEB', 'PA_GALFIT', 'PAERR_GALFIT', 'PA_GALFIT_CHEB', 'PAERR_GALFIT_CHEB', 'SKY_GALFIT', 'PSF_GALFIT', 'ORG_IMAGE_BAND', 'X_GALFIT_BAND', 'XERR_GALFIT_BAND', 'Y_GALFIT_BAND', 'YERR_GALFIT_BAND', 'MAG_GALFIT_BAND', 'MAGERR_GALFIT_BAND', 'RE_GALFIT_BAND', 'REERR_GALFIT_BAND', 'N_GALFIT_BAND', 'NERR_GALFIT_BAND', 'Q_GALFIT_BAND', 'QERR_GALFIT_BAND', 'PA_GALFIT_BAND', 'PAERR_GALFIT_BAND', 'SKY_GALFIT_BAND', 'PSF_GALFIT_BAND', 'SKY_GALFIT_CHEB', 'FLAG_GALFIT_BD', 'NITER_GALFIT_BD', 'NEIGH_GALFIT_BD', 'CHISQ_GALFIT_BD', 'VERSION_GALFIT_BD', 'FIRSTCON_GALFIT_BD', 'LASTCON_GALFIT_BD', 'NDOF_GALFIT_BD', 'NFREE_GALFIT_BD', 'NFIX_GALFIT_BD', 'CHI2NU_GALFIT_BD', 'INITFILE_BD', 'CONSTRNT_BD', 'FILE_GALFIT_BD', 'CPUTIME_SETUP_GALFIT_BD', 'CPUTIME_FIT_GALFIT_BD', 'CPUTIME_TOTAL_GALFIT_BD', 'X_GALFIT_D', 'XERR_GALFIT_D', 'X_GALFIT_B', 'XERR_GALFIT_B', 'X_GALFIT_CHEB_D', 'XERR_GALFIT_CHEB_D', 'X_GALFIT_CHEB_B', 'XERR_GALFIT_CHEB_B', 'Y_GALFIT_D', 'YERR_GALFIT_D', 'Y_GALFIT_B', 'YERR_GALFIT_B', 'Y_GALFIT_CHEB_D', 'YERR_GALFIT_CHEB_D', 'Y_GALFIT_CHEB_B', 'YERR_GALFIT_CHEB_B', 'MAG_GALFIT_D', 'MAGERR_GALFIT_D', 'MAG_GALFIT_B', 'MAGERR_GALFIT_B', 'MAG_GALFIT_CHEB_D', 'MAGERR_GALFIT_CHEB_D', 'MAG_GALFIT_CHEB_B', 'MAGERR_GALFIT_CHEB_B', 'RE_GALFIT_D', 'REERR_GALFIT_D', 'RE_GALFIT_B', 'REERR_GALFIT_B', 'RE_GALFIT_CHEB_D', 'REERR_GALFIT_CHEB_D', 'RE_GALFIT_CHEB_B', 'REERR_GALFIT_CHEB_B', 'N_GALFIT_D', 'NERR_GALFIT_D', 'N_GALFIT_B', 'NERR_GALFIT_B', 'N_GALFIT_CHEB_D', 'NERR_GALFIT_CHEB_D', 'N_GALFIT_CHEB_B', 'NERR_GALFIT_CHEB_B', 'Q_GALFIT_D', 'QERR_GALFIT_D', 'Q_GALFIT_B', 'QERR_GALFIT_B', 'Q_GALFIT_CHEB_D', 'QERR_GALFIT_CHEB_D', 'Q_GALFIT_CHEB_B', 'QERR_GALFIT_CHEB_B', 'PA_GALFIT_D', 'PAERR_GALFIT_D', 'PA_GALFIT_B', 'PAERR_GALFIT_B', 'PA_GALFIT_CHEB_D', 'PAERR_GALFIT_CHEB_D', 'PA_GALFIT_CHEB_B', 'PAERR_GALFIT_CHEB_B', 'X_GALFIT_BAND_D', 'XERR_GALFIT_BAND_D', 'X_GALFIT_BAND_B', 'XERR_GALFIT_BAND_B', 'Y_GALFIT_BAND_D', 'YERR_GALFIT_BAND_D', 'Y_GALFIT_BAND_B', 'YERR_GALFIT_BAND_B', 'MAG_GALFIT_BAND_D', 'MAGERR_GALFIT_BAND_D', 'MAG_GALFIT_BAND_B', 'MAGERR_GALFIT_BAND_B', 'RE_GALFIT_BAND_D', 'REERR_GALFIT_BAND_D', 'RE_GALFIT_BAND_B', 'REERR_GALFIT_BAND_B', 'N_GALFIT_BAND_D', 'NERR_GALFIT_BAND_D', 'N_GALFIT_BAND_B', 'NERR_GALFIT_BAND_B', 'Q_GALFIT_BAND_D', 'QERR_GALFIT_BAND_D', 'Q_GALFIT_BAND_B', 'QERR_GALFIT_BAND_B', 'PA_GALFIT_BAND_D', 'PAERR_GALFIT_BAND_D', 'PA_GALFIT_BAND_B', 'PAERR_GALFIT_BAND_B', 'TILE', 'Separation']
