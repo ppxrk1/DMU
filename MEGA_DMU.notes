@@ -9,16 +9,17 @@ This DMU provides the Single Sersic fits and Bulge-Disc decompositions for the G
 MEGA_DMU
 Simulations_DMU
 
+Dependencies: InputCatv16
+
 ------------------------------------------------------------------------
 CATAID is an ID which has a one-to-one match with InputCatAv05.
 
 Matched GAMA_9_ffvqqff_bd6_nf_re_b_HALF.fits with GAMA Input Cat in Topcat, match radius = 3"
 
-[not yet implemented] Where data is missing, the value '-9.9999' will be used for a floating point number, '-999' for an integer, and '-' for a string.
+Where data is missing, the value '-9.9999' will be used for a floating point number, '-999' for an integer, and '-' for a string.
 
 ------------------------------------------------------------------------
-THETA_IMAGE: Position Angle against the image, as given by SExtractor
-THETA_WORLD:Position Angle against the WCS, as given by SExtractor
+THETA_IMAGE: Position Angle against the image, as given by SExtractor (identical to Position Angle against the WCS, as given by SExtractor)
 ELLIPTICITY: Axial ratio of galaxy, b/a
 BACKGROUND: Local background as given by SExtractor
 FLUX_BEST, FLUXERR_BEST: Flux_Best as given by SExtractor, Error on FLUX_BEST
@@ -36,6 +37,9 @@ ORG_IMAGE: Array of Image names for each band on which the object was selected t
 
 ---
 _GALFIT_CHEB: Multiband fitting, Single Sersic (Chebishev polynomial parameters)
+_GALFIT_CHEB_B: Multiband fitting, bulge (n = free)
+_GALFIT_CHEB_D: Multiband fitting, disc (n = 1)
+
 _GALFIT_BAND: Multiband fitting, Single Sersic (Parameters at each observed band)
 _GALFIT_BAND_B: Multiband fitting, bulge (n = free)
 _GALFIT_BAND_D: Multiband fitting, disc (n = 1)
