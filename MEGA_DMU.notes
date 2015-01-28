@@ -60,6 +60,7 @@ RE: Effective radius in pixels
 N: Sersic index
 Q: Axial ratio, b/a
 PA: Position angle
+SKY: The sky level (determined by GALAPAGOS and held fixed).  This is only given for the single-Sersic fit, as it is identical for the bulge-disk decomposition.
 
 <error>...
 [blank]: the value itself
