@@ -11,6 +11,8 @@ The present catalogue was primarily produced to examine the pros and cons of mul
 
 Our method uses GALAPAGOS-2 with GALFITM to fit surface brightness models to the GAMA SDSS (ugriz) and UKIDSS (YJHK) images simultaneously.  Component centres, axial ratios and position angles are constrained to be the same at all wavelengths. Sersic index (for single and bulge components) is allowed to vary as a quadratic function of wavelength. An 8th-order polynomial is used for magnitude, which is therefore effectively free to vary between bands.
 
+In addition to the multi-band measurements, we also perform single-band fits using GALFITM and as similar setup as possible, for comparison purposes.  The results of these single-band fits are used for testing in some of the MegaMorph papers.  However, the SIGMA fits should by prefered by others for any single-band scientific analysis.  We therefore do not include our single-band results in this DMU, but they are available on request.
+
 In addition to the catalogue for the real GAMA data (MegaMorphCat), we provide results of applying the same methods to a set of simulations created to mimic the relevant properties of GAMA (MegaMorphSimCat).  These simulations are described in Haeussler et al. (2013, MNRAS, 430, 430) and Haeussler et al. (in prep., GAMA project 252).
 
 Dependencies:
