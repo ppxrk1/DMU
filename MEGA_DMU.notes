@@ -1,54 +1,87 @@
 MegaMorph
-2014-09-29
+2015-01-28
 Boris Haeussler <borishaeussler.astro@gmail.com>
 Steven Bamford <steven.bamford@nottingham.ac.uk>
 Rebecca Kennedy <Rebecca.Kennedy@nottingham.ac.uk>
 
-This DMU provides the Single Sersic fits and Bulge-Disc decompositions for the GAMA NGP (equatorial) regions, in addition to the simulations used in the fits.
+This DMU provides parameters from single-Sersic fits and bulge-disc decompositions performed using MegaMorph multi-band
+fitting methods (http://www.nottingham.ac.uk/astronomy/megamorph/).
 
-MEGA_DMU
-Simulations_DMU
+The present catalogue was primarily produced to examine the pros and cons of multi-band fitting in a large galaxy survey. To limit the required computing requirements, only G09 GAMA I region was considered.  The single-Sersic results in this DMU are presented in Haeussler et al. (2013, MNRAS, 430, 430) and studied further in Vulcani et al. (2014, MNRAS, 441, 1340) and Kennedy et al. (in prep., GAMA project 260).  The bulge-disk results are to be presented in Haeussler et al. (in prep., GAMA project 252) and studied further in Kennedy et al. (in prep., GAMA project 261). Application of MegaMorph methods to SDSS+VIKING data for all GAMA II NGP regions is underway.  This DMU will be updated with these results in due course.
 
-Dependencies: InputCatv16
+Our method uses GALAPAGOS-2 with GALFITM to fit surface brightness models to the GAMA SDSS (ugriz) and UKIDSS (YJHK) images simultaneously.  Component centres, axial ratios and position angles are constrained to be the same at all wavelengths. Sersic index (for single and bulge components) is allowed to vary as a quadratic function of wavelength. An 8th-order polynomial is used for magnitude, which is therefore effectively free to vary between bands.
+
+In addition to the multi-band measurements, we also perform single-band fits using GALFITM and as similar setup as possible, for comparison purposes.  The results of these single-band fits are used for testing in some of the MegaMorph papers.  However, the SIGMA fits should by prefered by others for any single-band scientific analysis.  We therefore do not include our single-band results in this DMU, but they are available on request.
+
+In addition to the catalogue for the real GAMA data (MegaMorphCat), we provide results of applying the same methods to a set of simulations created to mimic the relevant properties of GAMA (MegaMorphSimCat).  These simulations are described in Haeussler et al. (2013, MNRAS, 430, 430) and Haeussler et al. (in prep., GAMA project 252).
+
+Dependencies:
+  InputCat          InputCatAv05
+  Mosaicing         v02 (non-QC'ed product)
+  SersicPhotometry  (provides PSFs)
+
+########################################################################
+MegaMorphCat contains the following columns.
+Where data is missing, the value '-9.9999' is used for a floating point numbers, '-999' for integers, and '-' for strings.
 
 ------------------------------------------------------------------------
-CATAID is an ID which has a one-to-one match with InputCatAv05.
-
-Matched GAMA_9_ffvqqff_bd6_nf_re_b_HALF.fits with GAMA Input Cat in Topcat, match radius = 3"
-
-Where data is missing, the value '-9.9999' will be used for a floating point number, '-999' for an integer, and '-' for a string.
+CATAID: A one-to-one match performed between GAMA_9_ffvqqff_bd6_nf_re_b_HALF.fits and InputCatAv05 in Topcat, to find the best match within a radius of 3 arcsec.
 
 ------------------------------------------------------------------------
-THETA_IMAGE: Position Angle against the image, as given by SExtractor (identical to Position Angle against the WCS, as given by SExtractor)
+GALAPAGOS Sextractor parameters...
+
+THETA_IMAGE: Position Angle against the image (same as in WCS)
 ELLIPTICITY: Axial ratio of galaxy, b/a
-BACKGROUND: Local background as given by SExtractor
-FLUX_BEST, FLUXERR_BEST: Flux_Best as given by SExtractor, Error on FLUX_BEST
-MAG_BEST, MAGERR_BEST: MAG_Best as given by SExtractor, Error on MAG_BEST
-FLUX_RADIUS: Halflight radius as given by SExtractor
-ISOAREA_IMAGE: Object area as given by SExtractor
-FWHM_IMAGE: Image FWHM as given by SExtractor
+BACKGROUND: Local background
+FLUX_BEST, FLUXERR_BEST: Flux estimate and error
+MAG_BEST, MAGERR_BEST: Magnitude estimate and error
+FLUX_RADIUS: Halflight radius
+ISOAREA_IMAGE: Object area
+FWHM_IMAGE: Image FWHM
 FLAGS_1: SExtractor flags (see SExtractor manual)
-CLASS_STAR: Star/Galaxy Classifier as given by SExtractor
+CLASS_STAR: Star/Galaxy Classifier
+
+------------------------------------------------------------------------
+GALAPAGOS bookkeeping parameters...
+
 INIT_FILE: GALFIT start file, for manual re-run and adaptation
 CONSTRNT: GALFIT constraint file (contains allowed values, useful for analysis and selection of 'free' fits)
 FITSECT: Size of the fit section that the fit uses (in Galapagos use equivalent with postage stamp size)
 CONVBOX: Size of GALFIT convolution box used for the fit (should be the same for all objects)
 ORG_IMAGE: Array of Image names for each band on which the object was selected to be fit
 
----
-_GALFIT_CHEB: Multiband fitting, Single Sersic (Chebishev polynomial parameters)
-_GALFIT_CHEB_B: Multiband fitting, bulge (n = free)
-_GALFIT_CHEB_D: Multiband fitting, disc (n = 1)
+------------------------------------------------------------------------
+GALAPAGOS GALFITM parameters...
 
-_GALFIT_BAND: Multiband fitting, Single Sersic (Parameters at each observed band)
-_GALFIT_BAND_B: Multiband fitting, bulge (n = free)
-_GALFIT_BAND_D: Multiband fitting, disc (n = 1)
+These column names have the format <paramname><error><paramtype><component><coefficient/band>.
 
----
-X, Y: Co-ordinates 
+<paramname>...
+X, Y: Co-ordinates
 MAG: Apparent magnitude
+RE: Effective radius in pixels
 N: Sersic index
 Q: Axial ratio, b/a
-RE: Effective radius /pixels
+PA: Position angle
+SKY: The sky level (determined by GALAPAGOS and held fixed).  This is only given for the single-Sersic fit, as it is identical for the bulge-disk decomposition.
 
-------------------------------------------------------------------------
+<error>...
+[blank]: the value itself
+ERR: uncertainty on the value (estimated by GALFIT, questionable reliability)
+
+<paramtype>...
+_GALFIT_CHEB: Chebyshev coefficients from multi-band fit
+_GALFIT_BAND: Values evaluated for each band from multi-band fit
+_GALFIT: Value for each band from the single-band fit
+
+<component>...
+[blank]: Single-Sersic multi-band fit
+_B: Bulge (n=free) component of bulge-disk decomposition
+_D: Disk (n=1) component of multi-band bulge-disk decomposition
+
+<coefficient/band>...
+_0, _1, _2, ...: Chebyshev coefficient number
+_u, _g, _r, ...: Band name
+
+########################################################################
+MegaMorphSimCat contains the same columns, along with additional columns giving the "true" values simulated.
+These columns simply have "SIM" in their name, instead of GALFIT.
