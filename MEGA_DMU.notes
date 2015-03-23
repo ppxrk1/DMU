@@ -83,4 +83,4 @@ _0, _1, _2, ...: Chebyshev coefficient number
 _u, _g, _r, ...: Band name
 
 ########################################################################
-MegaMorphSimCat contains the same columns,  whilst MegaMorphSiimCAtTrue contains columns giving the "true" values simulated.
+MegaMorphSimCat contains the same columns,  whilst MegaMorphSimCatTrue  contains columns giving the "true" values simulated.
